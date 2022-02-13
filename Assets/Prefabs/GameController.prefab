@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6336457431034011479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6336457431034011473}
+  - component: {fileID: 8362147613248173691}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6336457431034011473
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6336457431034011479}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8362147613248173691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6336457431034011479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9401b32d0e8494b9100204c55903cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countDeadBots: 0
+  maxTimeGame: 10
+  maxHealthCastle: 10
+  maxMoneyGame: 100
+  currentTimerGame: 0
+  spawnerBots: {fileID: 0}
+  spawnerBullets: {fileID: 0}
+  countBulletsStartGame: 0
+  PanelStartGame: {fileID: 0}
+  PanelResult: {fileID: 0}
+  PanelWinGame: {fileID: 0}
+  PanelLoseGame: {fileID: 0}
+  delayOnPanelWinLose: 1
+  maxCountBots: 10
+  currentLevel: 0
+  isPlayGame: 0
+  stateGame: 0
+  currentHealthCastle: 0
+  currentCountBots: 0
+  currentMoney: 0
+  allMoney: 0
+  currentIDSkin: 0
+  currentIDWeapon: 0
+  upgradeDobleShootLevel: 0
+  currentPriceDoubleShoot: 0
+  upgradeSpeedHeroLevel: 0
+  currentPriceSpeedHero: 0
