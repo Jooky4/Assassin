@@ -8,19 +8,22 @@ public class CheckPlayer : MonoBehaviour
     [SerializeField]
     private EnemyController teamLead;
 
+
     [SerializeField]
     private EnemyController enemyController;
 
+    [Header("—сыль на √еро€")]
     [SerializeField]
     private MoveController moveController;
 
+    [Header("—сыль на VisuallDistanceAttack")]
     [SerializeField]
     private Transform visuallDistanceAttack;
 
-    [SerializeField]
+    //[SerializeField]
     private float valueScaleDistanceAttack;
 
-    [SerializeField]
+   // [SerializeField]
     private float distance;
 
     [SerializeField]
