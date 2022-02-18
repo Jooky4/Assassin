@@ -22,7 +22,7 @@ public class MoveController : MonoBehaviour
     private float speedBegin = 3.0f;
 
     [Header("Значение Upgrade скорости")]
-    [SerializeField]
+   // [SerializeField]
     private float multiPlay = 0.005f;
 
     private int upgradeSpeedHeroLevel;      //  // текущий Level SpeedHero

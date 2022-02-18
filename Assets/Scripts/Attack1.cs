@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : MonoBehaviour
+public class Attack1 : MonoBehaviour
 {
     [SerializeField]
     private CheckWeapon[] Bots;
@@ -33,36 +33,53 @@ public class Attack : MonoBehaviour
     {
         FindBots();
         animator = parentObject.GetComponent<Animator>();
-        // StartCoroutine(VisuallAttack());
-        StartCoroutine(TimerAttack());
+
+        StartCoroutine(VisuallAttack());
+        //StartCoroutine(TimerAttack());
     }
 
     void Update()
     {
-
+        //targetAttack = FindTarget();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void FindBots()
     {
-        print("Collision " + collision.transform.name);
-
+        Bots = FindObjectsOfType(typeof(CheckWeapon)) as CheckWeapon[];
     }
 
-    private void OnTriggerEnter(Collider other)
+    private Transform FindTarget()
     {
-        CheckWeapon checkWeapon = other.GetComponent<CheckWeapon>();
+        Transform currentTarget = null;
 
-        if (checkWeapon)
+        float lastDistance = Vector3.Distance(transform.position, Bots[0].transform.position); ;
+
+        foreach (CheckWeapon checkWeapon in Bots)
         {
-            AttackHero(other.transform);
-            print("Attack");
+            if (checkWeapon.gameObject.activeInHierarchy)
+            {
+                float currentDistance = Vector3.Distance(transform.position, checkWeapon.transform.position);
+
+                if (lastDistance > currentDistance)
+                {
+                    if (currentDistance < transform.localScale.x / 2)
+                    {
+                        currentTarget = checkWeapon.transform;
+
+                        lastDistance = currentDistance;
+                    }
+                }
+
+               
+            }
         }
 
+        return currentTarget;
     }
+
 
     void AttackHero(Transform target)
     {
-
         if (animator)
         {
             //animator.SetBool("Attack", true);
@@ -105,11 +122,15 @@ public class Attack : MonoBehaviour
     {
         while (true)
         {
+            targetAttack = FindTarget();
+
             if (targetAttack)
             {
                 if (targetAttack.gameObject.activeInHierarchy)
                 {
                     Transform tempObj = Instantiate(prefabWeapon, spawnWeapon.position, Quaternion.identity);
+
+                    Debug.DrawLine(transform.position, targetAttack.position,Color.red);
 
                     tempObj.GetComponent<Weapon>().targetAttack = targetAttack;
 
@@ -122,9 +143,6 @@ public class Attack : MonoBehaviour
 
 
 
-    void FindBots()
-    {
-        Bots = FindObjectsOfType(typeof(CheckWeapon)) as CheckWeapon[];
-    }
+
 
 }

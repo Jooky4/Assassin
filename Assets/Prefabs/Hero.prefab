@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 337252634}
   - component: {fileID: 1514123324}
   - component: {fileID: 1794430524133160355}
+  - component: {fileID: 201801057}
   m_Layer: 0
   m_Name: VisuallDistanceAttack
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 337252632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.084, z: 0}
-  m_LocalScale: {x: 10, y: 0.001, z: 10}
+  m_LocalScale: {x: 20, y: 0.001, z: 20}
   m_Children: []
   m_Father: {fileID: 472729879873790416}
   m_RootOrder: 2
@@ -105,14 +106,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 337252632}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48e7cb75f31ec2e4aa51a1335ee2280e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bots: []
+  speedAttack: 0.08
   prefabWeapon: {fileID: 7761595693521931919, guid: 9dfcdc24555921042a99f3a4e4965b15, type: 3}
   spawnWeapon: {fileID: 139688269472509917}
   parentObject: {fileID: 543450653398701996}
+  targetAttack: {fileID: 0}
 --- !u!54 &1794430524133160355
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -129,6 +133,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &201801057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337252632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf47cfc06c78be54c9863a69e2acfb66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bots: []
+  speedAttack: 0.08
+  prefabWeapon: {fileID: 7761595693521931919, guid: 9dfcdc24555921042a99f3a4e4965b15, type: 3}
+  spawnWeapon: {fileID: 139688269472509917}
+  parentObject: {fileID: 543450653398701996}
+  targetAttack: {fileID: 0}
 --- !u!1 &472729879179952228
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,8 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualPlayer: {fileID: 472729879179952228}
-  speedBegin: 3
-  multiPlay: 0.005
+  speedBegin: 5
   animator: {fileID: 0}
 --- !u!208 &1909049051
 NavMeshObstacle:
@@ -286,7 +307,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 472729879933719350}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 6.71, z: -4.37}
+  m_LocalPosition: {x: 0, y: 10.55, z: -7.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 472729879873790416}
