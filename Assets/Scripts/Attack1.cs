@@ -52,7 +52,7 @@ public class Attack1 : MonoBehaviour
     {
         Transform currentTarget = null;
 
-        float lastDistance = Vector3.Distance(transform.position, Bots[0].transform.position); ;
+        float lastDistance = 1000; //= Vector3.Distance(transform.position, Bots[0].transform.position); ;
 
         foreach (CheckWeapon checkWeapon in Bots)
         {

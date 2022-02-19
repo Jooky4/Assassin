@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 337252636}
   - component: {fileID: 337252635}
   - component: {fileID: 337252634}
-  - component: {fileID: 1514123324}
   - component: {fileID: 1794430524133160355}
   - component: {fileID: 201801057}
   m_Layer: 0
@@ -99,24 +98,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1514123324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 337252632}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48e7cb75f31ec2e4aa51a1335ee2280e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Bots: []
-  speedAttack: 0.08
-  prefabWeapon: {fileID: 7761595693521931919, guid: 9dfcdc24555921042a99f3a4e4965b15, type: 3}
-  spawnWeapon: {fileID: 139688269472509917}
-  parentObject: {fileID: 543450653398701996}
-  targetAttack: {fileID: 0}
 --- !u!54 &1794430524133160355
 Rigidbody:
   m_ObjectHideFlags: 0

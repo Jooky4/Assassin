@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 4561855482993794564}
   - component: {fileID: 4561855482993794570}
   - component: {fileID: 4169071457120214244}
+  - component: {fileID: 6450302661436169281}
   m_Layer: 0
   m_Name: Bot_1
   m_TagString: Untagged
@@ -125,6 +126,19 @@ MonoBehaviour:
   percentChoiceBot: 10
   moneyForBot: 10
   lastPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &6450302661436169281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4561855482993794567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660059ee49ea0a544ac182c0f87c2fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabHealthSliderBot: {fileID: 489438150440979690, guid: 690aca632969dc04f98cff8e5c2d0773, type: 3}
 --- !u!1 &4561855483470257834
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentObject: {fileID: 4561855482993794564}
   visualEnemy: {fileID: 4090480232836924883}
-  maxHealthBot: 1
+  maxHealthBot: 10
   currentHealthBot: 0
   isDead: 0
   particleSysWound: {fileID: 0}
