@@ -22,11 +22,11 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public int countDeadBots;
 
-    [Header("МАХ время игры")]
-    public int maxTimeGame = 10;
+    //[Header("МАХ время игры")]
+    //public int maxTimeGame = 10;
 
-    [Header("Мах число жизней замка")]
-    public int maxHealthCastle = 10;
+    [Header("Мах число жизней Player")]
+    public int maxHealthPlayer = 10;
 
     [Header("Мах число бабла за игру")]
     public int maxMoneyGame = 100;
@@ -34,18 +34,18 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public int currentTimerGame;
 
-    [Header("Ссыль SpawnerBots")]
-    [SerializeField]
-    public Transform spawnerBots;
+    //[Header("Ссыль SpawnerBots")]
+    //[SerializeField]
+    //public Transform spawnerBots;
 
 
-    [Header("Ссыль SpawnerBullets")]
-    [SerializeField]
-    public Transform spawnerBullets;
+    //[Header("Ссыль SpawnerBullets")]
+    //[SerializeField]
+    //public Transform spawnerBullets;
 
-    [Header("Кол-во Spawn снарядов в начале игры")]
-    [SerializeField]
-    public int countBulletsStartGame;
+    //[Header("Кол-во Spawn снарядов в начале игры")]
+    //[SerializeField]
+    //public int countBulletsStartGame;
 
     [Header("Ссыль на панель Старт Игра")]
     [SerializeField]
@@ -67,24 +67,27 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private float delayOnPanelWinLose = 1.0f;
 
-    [SerializeField]
-    [Header("Мах кол-во ботов")]
-    private int maxCountBots = 10;
+    //[SerializeField]
+    //[Header("Мах кол-во ботов")]
+    //private int maxCountBots = 10;
 
-    [HideInInspector]
+    //[HideInInspector]
     public int currentLevel;   //   текущий уровень 
 
     [HideInInspector]
     public bool isPlayGame;
 
-    [HideInInspector]
+    //[HideInInspector]
     public StateGame stateGame;
 
-    [HideInInspector]
-    public int currentHealthCastle; // текущее здоровье замка
+    //[HideInInspector]
+    //public int currentHealthCastle; // текущее здоровье замка
 
-    [HideInInspector]
-    public int currentCountBots;   //  текущее кол-во ботов
+    //[HideInInspector]
+    public int currentHealthPlayer; // текущее здоровье player
+
+    //[HideInInspector]
+    //public int currentCountBots;   //  текущее кол-во ботов
 
     [HideInInspector]
     public int currentMoney;   //  текущее кол-во бабла
@@ -117,8 +120,8 @@ public class GameController : MonoBehaviour
         PanelResult.SetActive(false);
         PanelWinGame.SetActive(false);
         PanelLoseGame.SetActive(false);
-        spawnerBullets.gameObject.SetActive(false);
-        spawnerBots.gameObject.SetActive(false);
+        //spawnerBullets.gameObject.SetActive(false);
+        //spawnerBots.gameObject.SetActive(false);
         PanelStartGame.gameObject.SetActive(true);
 
         currentLevel = LoadData("LevelNumber");
@@ -137,12 +140,14 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        currentHealthCastle = maxHealthCastle;
-        currentCountBots = maxCountBots;
+        //currentHealthCastle = maxHealthCastle;
+       // currentCountBots = maxCountBots;
         isPlayGame = true;
         stateGame = StateGame.Start;
-        currentTimerGame = maxTimeGame;
-        StartCoroutine(TimerGame());
+        // currentTimerGame = maxTimeGame;
+        // StartCoroutine(TimerGame());
+
+        StartGame();
     }
 
     private void Update()
@@ -156,17 +161,22 @@ public class GameController : MonoBehaviour
 
     void UpdateGame()
     {
-        if (currentHealthCastle <= 0)
+        if (currentHealthPlayer <= 0)
         {
             stateGame = StateGame.LoseGame;
         }
 
-        if (currentTimerGame <= 0)
+        //if (currentHealthCastle <= 0)
+        //{
+        //    stateGame = StateGame.LoseGame;
+        //}
 
-        //if (currentCountBots <= 0 && currentTimerGame <= 0)
-        {
-            stateGame = StateGame.WinGame;
-        }
+        //if (currentTimerGame <= 0)
+
+        ////if (currentCountBots <= 0 && currentTimerGame <= 0)
+        //{
+        //    stateGame = StateGame.WinGame;
+        //}
     }
 
     /// <summary>
@@ -196,8 +206,10 @@ public class GameController : MonoBehaviour
     public void StartGame()
     {
         stateGame = StateGame.Game;
-        spawnerBullets.gameObject.SetActive(true);
-        spawnerBots.gameObject.SetActive(true);
+
+        //spawnerBullets.gameObject.SetActive(true);
+        // spawnerBots.gameObject.SetActive(true);
+        PanelStartGame.SetActive(false);
         PanelResult.SetActive(true);
     }
 
@@ -206,8 +218,8 @@ public class GameController : MonoBehaviour
     /// </summary>
     public void EndGame()
     {
-        spawnerBullets.gameObject.SetActive(false);
-        spawnerBots.gameObject.SetActive(false);
+       // spawnerBullets.gameObject.SetActive(false);
+       // spawnerBots.gameObject.SetActive(false);
         PanelResult.SetActive(false);
         SaveData("LevelNumber", currentLevel);                            // сохраняем номер level
 

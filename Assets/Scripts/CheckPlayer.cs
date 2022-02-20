@@ -1,29 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CheckPlayer : MonoBehaviour
 {
-    [Header("Командир отряда")]
     [SerializeField]
-    private EnemyController teamLead;
-
-
-    [SerializeField]
-    private EnemyController enemyController;
-
-    [Header("Ссыль на Героя")]
-    [SerializeField]
-    private MoveController moveController;
-
-    [Header("Ссыль на VisuallDistanceAttack")]
-    [SerializeField]
-    private Transform visuallDistanceAttack;
+    private CheckHero checkHero;
 
     //[SerializeField]
+    private EnemyController enemyController;
+
+    // [Header("Ссыль на Героя")]
+    // [SerializeField]
+    private MoveController moveController;
+
+    
+    [SerializeField]
+    private Transform visuallDistance;
+
+    //[SerializeField]
+    private Transform currentTarget;
+
+    [SerializeField]
     private float valueScaleDistanceAttack;
 
-   // [SerializeField]
+    [SerializeField]
     private float distance;
 
     [SerializeField]
@@ -32,8 +31,15 @@ public class CheckPlayer : MonoBehaviour
 
     void Start()
     {
-        // moveController = GetComponent<MoveController>();
-        valueScaleDistanceAttack = visuallDistanceAttack.localScale.x / 2;
+        moveController = FindObjectOfType(typeof(MoveController)) as MoveController;
+
+        enemyController = GetComponentInParent<EnemyController>();
+
+        checkHero = GetComponentInParent<CheckHero>();
+
+       // visuallDistanceAttack = transform;
+
+        valueScaleDistanceAttack = visuallDistance.localScale.x / 2;
     }
 
 
@@ -46,7 +52,7 @@ public class CheckPlayer : MonoBehaviour
 
     void UpdateCheckTarget()
     {
-        GetTeamLead();
+        //GetTeamLead();
         distance = CheckDistance(transform, moveController.transform);
 
         if (distance < valueScaleDistanceAttack)
@@ -72,14 +78,14 @@ public class CheckPlayer : MonoBehaviour
 
     void GetTeamLead()
     {
-        if (teamLead)
-        {
-            if (teamLead.currentTarget)
-            {
-                enemyController.currentTarget = teamLead.currentTarget;
-                isPlayer = true;
-            }
-        }
+        //if (teamLead)
+        //{
+        //    if (teamLead.currentTarget)
+        //    {
+        //        enemyController.currentTarget = teamLead.currentTarget;
+        //        isPlayer = true;
+        //    }
+        //}
     }
 
 }
