@@ -22,7 +22,7 @@ public class MoveController : MonoBehaviour
     private float speedBegin = 3.0f;
 
     [Header("Значение Upgrade скорости")]
-    [SerializeField]
+   // [SerializeField]
     private float multiPlay = 0.005f;
 
     private int upgradeSpeedHeroLevel;      //  // текущий Level SpeedHero
@@ -56,7 +56,7 @@ public class MoveController : MonoBehaviour
         float horizMove = JoystickStick.Instance.VerticalAxis();
         float verticalMove = JoystickStick.Instance.HorizontalAxis();
 
-        if ((horizMove == 0.0f && verticalMove == 0.0f) )//|| (GameController.Instance.stateGame != StateGame.Game))
+        if ((horizMove == 0.0f && verticalMove == 0.0f) || (GameController.Instance.stateGame != StateGame.Game))
         {
             if (animator)
             {

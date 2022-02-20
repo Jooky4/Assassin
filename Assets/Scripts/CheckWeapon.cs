@@ -16,8 +16,8 @@ public class CheckWeapon : MonoBehaviour
     private Animator animator;
 
     [Header("Мах колво жизней бота")]
-    [SerializeField]
-    private int maxHealthBot = 1;
+    //[HideInInspector]
+    public int maxHealthBot = 1;
 
     /// <summary>
     /// текущее здоровье бота
